@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalTrust Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+    <style>
+        body {
+            font-family: 'Century Gothic', Arial;
+            background-color: #343333;
+        }
+
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 1055;
+        }
+        .custom-login-btn {
+            background-color: #FAE173; /* Оранжевый цвет */
+            color: black; /* Белый текст */
+            border: none; /* Убираем обводку */
+            margin-right: 150px;
+            border-radius: 35px;
+            width: 216px;
+            height: 55px;
+        }
+
+        .custom-login-btn:hover {
+            background-color: #d3be62; /* Более темный оранжевый при наведении */
+        }
+
+        .custom-margin {
+            margin-left: 196px;
+        }
+        
+        .custom-singin-btn-modal {
+            background-color: #FAE173; /* Оранжевый цвет */
+            color: black; /* Белый текст */
+            border: none;
+        }
+
+        .custom-singin-btn-modal:hover {
+            background-color: #d3be62;
+        }
+        
+        .custom-login-btn-modal {
+            background-color: #FAE173; /* Оранжевый цвет */
+            color: black; /* Белый текст */
+            border: none;
+        }
+
+        .custom-login-btn-modal:hover {
+            background-color: #d3be62;
+        }
+        
+        
+
+        .custom-nav-link {
+            color: #FAE173;
+        }
+
+        
+         header {
+            text-align: center
+        }   
+
+        .bg-image-section {
+            background-image: url('./img/фоновая картинка.png'); /* Укажите путь к фоновой картинке */
+            background-size: cover; /* Масштабировать для покрытия всего раздела */
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Высота секции: 100% окна */
+            width: 100%; /* Полная ширина секции */
+            display: flex; /* Используем Flexbox для размещения контента */
+            align-items: center; /* Центрируем контент по вертикали */
+            justify-content: flex-end; /* Размещаем группу в правой части */
+            padding-right: 50px; /* Отступ от правого края */
+        }
+
+        /* Группа логотипа и текста */
+        .logo-text-group {
+            position: absolute;
+            top: 150px;
+            left: 907px;
+            transform: translateY(50%);
+            display: flex; /* Включаем Flexbox */
+            flex-direction: column; /* Располагаем элементы в колонку */
+            align-items: center; /* Центрируем элементы по горизонтали */
+            text-align: center; /* Центрируем текст и логотип внутри группы */
+            margin-bottom: 30px; /* Отступ снизу */
+        }
+
+        /* Стили для логотипа */
+        .logo {
+            max-width: 150px; /* Ограничиваем размер логотипа */
+            height: auto; /* Сохраняем пропорции */
+            margin-bottom: 10px; /* Отступ между логотипом и текстом */
+        }
+
+        /* Стили для надписи */
+        .logo-caption {
+            font-size: 1.5rem; /* Размер шрифта */
+            color: #FAE173; /* Цвет текста */
+            font-weight: bold; /* Жирный текст */
+            background-color: rgba(217, 217, 217, 0.38); /* Прямоугольный фон с прозрачностью */
+            border-radius: 10px; /* Закругленные углы */
+            padding: 10px 20px; /* Внутренний отступ */
+            display: inline-block; /* Делаем элемент блочным */
+        }
+
+
+        .info-columns-wrapper {
+            
+            margin-top: auto; /* Отодвигаем колонки к нижней части раздела */
+            padding: 20px 0;
+        }
+
+        /* Для контейнера с тремя элементами */
+        .info-columns {
+            
+            display: flex; /* Используем Flexbox */
+            justify-content: space-between; /* Равномерное распределение между колонками */
+            align-items: flex-start; /* Выровнять элементы по верхнему краю */
+            gap: 20px;  /* Промежутки между колонками */
+                        
+        } 
+
+        /* Для каждой колонки */
+        .info-column {
+            background-color: rgba(27, 27, 27, 0.83); /* Тёмный фон с прозрачностью */
+            color: #FAE173; /* Жёлтый текст */
+            padding: 20px; /* Внутренний отступ */
+            border-radius: 10px; /* Закруглённые углы */
+            width: 350px; /* Ширина каждой колонки */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Тень */
+        }
+
+        /* Заголовок колонки */
+        .info-column h3 {
+            margin-bottom: 15px; /* Отступ после заголовка */
+            font-size: 1.5rem;
+        }
+
+        /* Текст внутри колонки */
+        .info-column p {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Стрелка-ссылка */
+        .arrow-link {
+            font-size: 1.5rem; /* Размер стрелки */
+            color: #ffffff; /* Цвет стрелки */
+            text-decoration: none; /* Убираем подчёркивание */
+        }
+
+        .arrow-link:hover {
+            color: #d3be62; /* Цвет при наведении */
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 57px; /* Увеличиваем расстояние между пунктами */
+        }
+
+        
+
+        /* Стили для раздела */
+        .text-section {
+            padding: 50px 20px; /* Отступы раздела */
+            background-color: #343333; /* Светлый фон */
+            margin-top: -50px; /* Уменьшаем расстояние сверху */
+        }
+
+        /* Основной заголовок */
+        .main-heading {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Абзацы */
+        .main-paragraph {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px; /* Небольшой отступ между абзацами */
+        }
+
+        /* Больший отступ после последнего абзаца */
+        .main-paragraph:last-of-type {
+            margin-bottom: 30px; /* Увеличенный отступ */
+        }
+
+        /* Нумерованные заголовки */
+        .numbered-heading {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* Текст под нумерованными заголовками */
+        .numbered-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-left: 20px; /* Сдвиг текста вправо, наравне с заголовком */
+            margin-bottom: 15px; /* Отступ под текстом */
+        }
+
+        /* Большой центральный заголовок */
+        .large-heading-wrapper {
+            margin-top: 40px; /* Отступ сверху */
+            text-align: center;
+        }
+
+        .large-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Список нумерованных абзацев */
+        .numbered-list {
+            font-size: 1rem;
+            line-height: 1.5;
+            padding-left: 20px; /* Отступ для списка */
+            list-style-type: decimal; /* Нумерация списка */
+            margin: 0;
+        }
+        .numbered-list li {
+            margin-bottom: 0; /* Без отступов между элементами списка */
+        }
+
+        .text-section h2, 
+        .text-section h3 {
+            color: #FAE173; /* Цвет заголовков */
+        }
+
+        .text-section p {
+            color: #ffffff; /* Белый цвет для абзацев */
+        }
+
+        .text-section li {
+            color: white;
+        }
+
+        .faq-section {
+            max-width: flex;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #343333;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #FAE173;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .faq-item {
+            flex: 1 1 calc(33.333% - 20px);
+            background-color: #888181;
+            color: white;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .faq-item:nth-child(2) {
+            background-color: #FCEEB1;
+            color: black;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .faq-item:nth-child(2)::before {
+            content: "От";
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .faq-item {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-item {
+                flex: 1 1 100%;
+            }
+
+            .faq-title {
+                font-size: 24px;
+            }
+        }
+        .navbar-nav {
+            padding-left: 70px;
+        }
+
+        .section-container {
+            display: flex;
+            height: 400px;
+        }
+        .form-container {
+            flex: 1;
+            background-color: #EAFA73;
+            padding: 20px;
+        }
+        .form-control {
+            border: 2px solid black;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .submit-button {
+            background-color: rgba(163, 137, 6, 0.39);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .contact-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .phone-section {
+            flex: 1;
+            background-color: #494545;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+        }
+        .email-section {
+            flex: 1;
+            background-color: #1C1B1B;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+        }
+        .icon {
+            font-size: 30px;
+        }
+
+        footer {
+            width: 100%;
+            position: relative;
+            background: #252323;
+            color: white;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 40px 50px;
+        }
+
+        .form-section {
+            width: 60%;
+            background: #EAFA73;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+        .form-textarea {
+            height: 100px;
+        }
+
+        .submit-button {
+            background: rgba(163, 137, 6, 0.39);
+            border: 2px solid black;
+            color: black;
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .contact-section {
+            width: 35%;
+        }
+
+        .contact-block {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .phone-block {
+             background: #494545;
+        }
+
+        .email-block {
+             background: #1C1B1B;
+        }
+
+        .contact-icon {
+            font-size: 36px;
+            margin-right: 20px;
+            color: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 50px;
+            background: #252323;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #FAE173;
+            font-size: 25px;
+            font-family: 'Jura', sans-serif;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 152px;
+            height: 129px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 250px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #FAE173;
+        }
+        .custom-nav-link.active {
+        color: #FAE173 !important;
+    }
+
+    </style>
+
+           <!-- Шапка сайта "Header" -->
+
+    <header>
+
+            <!-- навигационная панель -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-5 me-auto mb-2 mb-lg-0 custom-margin">
+                        <li class="nav-item">
+                            <a class="nav-link active custom-nav-link" aria-current="page" href="#">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Услуги.html">Услуги</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Специалисты.html">Специалисты</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Контакты.html">Контакты</a>
+                        </li>
+                    </ul>
+
+                                <!-- Кнопка "Войти" -->
+
+                        <button type="button" class="btn btn-primary custom-login-btn btn-lg" data-bs-toggle="modal" data-bs-target="#loginModal">Войти</button>                
+                    </div>
+            </div>
+        </nav>
+
+             <!-- Модальное окно "Вход" -->
+
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Вход</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <!-- Форма входа -->
+
+                        <form>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="email" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" placeholder="Пароль">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary custom-singin-btn-modal w-100  " onclick="handleSuccess('Вход')">Войти</button>
+                        </form>
+                        <hr>
+
+                        <!-- Ссылка на модальное окно регистрации -->
+                        <div class="text-center">
+
+                            <p>Нет аккаунта? <a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#registerModal">Зарегистрируйтесь</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                   <!-- Модальное окно "Регистрация" -->
+
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerModalLabel">Регистрация</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Форма регистрации -->
+
+                        <form>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="registerEmail" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="registerPassword" placeholder="Пароль">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock-fill"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Повторите ваш пароль">
+                                </div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Запомнить меня
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-success custom-login-btn-modal w-100"
+                                onclick="handleSuccess('Регистрация')">Зарегистрироваться</button>
+                                
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                    <!-- Контейнер для уведомлений -->
+
+        <div class="toast-container">
+            <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="toastMessage">Прошло успешно</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+                    <!-- Основной раздел -->
+    <main>
+
+        <!-- 1 раздел -->
+        <section class="bg-image-section mb-5">
+            <div class="logo-text-group">
+                <img src="./img/лого.png" alt="Логотип LegalTrust" class="logo">
+                <p class="logo-caption">Работаем по собственной методике</p>
+            </div>
+
+                     <!-- Новый блок с тремя колонками -->
+
+            <div class="info-columns-wrapper">
+                <div class="info-columns">
+                    <div class="info-column">
+                        <h3>Банкротство</h3>
+                        <p>Сопровождение процесса банкротства для должника по системе "под ключ". Для кредиторов мы делаем всё
+                            возможное с целью получения долга из имущества.</p>
+                        <a href="#" class="arrow-link">➔</a>
+                    </div>
+                    <div class="info-column">
+                        <h3>Уголовное дело</h3>
+                        <p>Добиваемся справедливости в уголовных делах. Высокий процент успешных решений. Индивидуальный подход и
+                            эффективная защита ваших интересов.</p>
+                        <a href="#" class="arrow-link">➔</a>
+                    </div>
+                    <div class="info-column">
+                        <h3>Расторжение брака</h3>
+                        <p>Развод без проблем. Быстрое и эффективное расторжение брака. Помощь в разделе имущества и определении
+                            места жительства детей.</p>
+                        <a href="#" class="arrow-link">➔</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2 раздел -->
+        <section class="text-section">
+            <div class="container">
+                <!-- Основной заголовок -->
+                <h2 class="main-heading">О нас</h2>
+        
+                <!-- Текстовые абзацы -->
+                <p class="main-paragraph">Юристы нашей юридической компании – это профессионалы с большим опытом работы в крупных консалтинговых фирмах России. Мы
+                предоставляем юридические услуги высокого уровня по приемлемым и доступным ценам как небольшим фирмам, так и компаниям с
+                целыми юридическими отделами.</p>
+                <p class="main-paragraph">Доверители, обратившиеся к нам за помощью, могут быть уверены, что им будет оказаны квалифицированные услуги, причем
+                именно те, в которых клиент действительно нуждается. С каждым клиентом обязательно подписывается договор, который
+                является гарантией для доверителя. Репутация и честное отношение – наше основное кредо.</p>
+                <p class="main-paragraph">Доверители могут заказать как отдельно взятую услугу (например, по составлению заявления в суд), так и воспользоваться
+                комплексной помощью. В любом случае мы будем стараться выполнить взятые на себя обязательства добросовестно и с полной
+                отдачей</p>
+        
+                <!-- Нумерованные заголовки с текстом -->
+                <div class="numbered-section">
+                    <h3 class="numbered-heading">1. Наши клиенты</h3>
+                    <p class="numbered-text">Небольшой и средний бизнес, работающий в сфере строительства и производства, а также государственные предприятия и
+                    общественные организации.</p>
+        
+                    <h3 class="numbered-heading">2. Наша миссия</h3>
+                    <p class="numbered-text">Способствование успешному развитию и функционированию бизнеса доверителей, без всевозможных рисков и правовых проблем.</p>
+        
+                    <h3 class="numbered-heading">3. Наша цель</h3>
+                    <p class="numbered-text">Своевременное оказание качественных юридических услуг доверителям.</p>
+                </div>
+        
+                <!-- Отступ перед большим заголовком -->
+                <div class="large-heading-wrapper">
+                    <h2 class="large-heading">Почему стоит обратиться именно в нашу юридическую компанию?</h2>
+                </div>
+        
+                <!-- Нумерованные абзацы -->
+                <ol class="numbered-list">
+                    <li>Бесплатная первичная консультация. В ходе нее доверитель может не только получить ответы на интересующие вопросы, но и
+                    решить, стоит ли сотрудничать с нами дальше.</li>
+                    <li>Умение решать сложные дела. Наш «конёк» - это сложные случаи, которые были признаны другими юристами безнадежными и
+                    бесперспективными.</li>
+                    <li>Доступность для связи 24 часа в сутки 7 дней в неделю. Наши доверители могут получить юридические услуги в любое время
+                    дня и ночи, в том числе в выходные и праздничные дни.</li>
+                    <li>Экономия времени. Если вам требуются юридические услуги в Москве, позвоните нам и сообщите свой адрес – специалисты
+                    быстро подъедут в названное вами место для того, чтобы решить проблему.</li>
+                    <li>Услуги «под ключ». Наши доверители продолжают заниматься своими делами, в то время как все заботы о том, как найти выход
+                    из проблемной ситуации, ложатся на наши плечи.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 3 раздел  -->
+        <section class="faq-section">
+            <div class="faq-section">
+                <div class="faq-title">Часто задаваемые вопросы</div>
+                <div class="faq-container">
+                    <div class="faq-item">Как зарегистрировать бизнес?</div>
+                    <div class="faq-item">500 руб.</div>
+                    <div class="faq-item">Что делать, если я стал жертвой мошенничества?</div>
+                    <div class="faq-item">Как обжаловать решение суда?</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал "Footer" -->
+    <footer>
+        <div class="footer-container">
+            <!-- Левая часть с формой -->
+            <div class="form-section">
+                <h2 style="color: black;">Оставьте заявку на бесплатную консультацию</h2>
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Ваше имя">
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-input" placeholder="Ваш номер телефона">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" placeholder="Опишите вашу проблему"></textarea>
+                </div>
+                <div class="submit-button">Отправить</div>
+            </div>
+        
+            <!-- Правая часть с контактами -->
+            <div class="contact-section">
+                <!-- Телефон -->
+                <div class="contact-block phone-block">
+                    <i class="bi bi-telephone-fill contact-icon"></i>
+                    <span>+7 (777) 777-77-77</span>
+                </div>
+                <!-- Почта -->
+                <div class="contact-block email-block">
+                    <i class="bi bi-envelope-fill contact-icon"></i>
+                    <span>infoLegal@mail.com</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <!-- Логотип -->
+            <div class="logo">
+                <img src="./img/лого.png" alt="Logo">
+            </div>
+        
+            <!-- Ссылки -->
+            <div class="footer-links">
+                <!-- Первый столбец -->
+                <div class="footer-column">
+                    <a href="/Главная.html">Главная</a>
+                    <a href="/Услуги.html">Услуги</a>
+                    <a href="/Специалисты.html">Специалисты</a>
+                    <a href="/Контакты.html">Контакты</a>
+                </div>
+                <!-- Второй столбец -->
+                <div class="footer-column">
+                    <label for="">Политика</label>
+                    <label for="">Конфиденциальность</label>
+                </div>
+            </div>
+        
+            <!-- Соцсети -->
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-tiktok"></i></a>
+            </div>
+        </div>
+        
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleSuccess(action) {
+
+                       // Закрытие всех открытых модальных окон
+
+                const modals = document.querySelectorAll('.modal.show');
+                modals.forEach(modal => {
+                    const instance = bootstrap.Modal.getInstance(modal);
+                    instance.hide();
+                });
+
+                        // Настройка и показ уведомления
+
+                const toast = new bootstrap.Toast(document.getElementById('successToast'));
+                document.getElementById('toastMessage').innerText = `${action} прошла успешно`;
+                toast.show();
+            }
+    </script>
+</body>
+</html>
