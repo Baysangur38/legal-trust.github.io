@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalTrust Специалисты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
+
+</head>
+
+<body>
+
+    <style>
+                body {
+            font-family: 'Century Gothic', Arial;
+            background-color: #343333;
+        }
+
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 1055;
+        }
+
+        .custom-login-btn {
+            background-color: #FAE173;
+            /* Оранжевый цвет */
+            color: black;
+            /* Белый текст */
+            border: none;
+            /* Убираем обводку */
+            margin-right: 150px;
+            border-radius: 35px;
+            width: 216px;
+            height: 55px;
+        }
+
+        .custom-login-btn:hover {
+            background-color: #d3be62;
+            /* Более темный оранжевый при наведении */
+        }
+
+        .custom-margin {
+            margin-left: 196px;
+        }
+
+        .custom-singin-btn-modal {
+            background-color: #FAE173;
+            /* Оранжевый цвет */
+            color: black;
+            /* Белый текст */
+            border: none;
+        }
+
+        .custom-singin-btn-modal:hover {
+            background-color: #d3be62;
+        }
+
+        .custom-login-btn-modal {
+            background-color: #FAE173;
+            /* Оранжевый цвет */
+            color: black;
+            /* Белый текст */
+            border: none;
+        }
+
+        .custom-login-btn-modal:hover {
+            background-color: #d3be62;
+        }
+
+        .custom-singin-btn-modal:hover, .custom-login-btn-modal:hover, 
+        .custom-singin-btn-modal:active, .custom-login-btn-modal:active {
+            background-color: #d3be62; /* Цвет при нажатии */
+            color: black;
+        }
+
+        /* Кнопки в модальных окнах */
+        .custom-singin-btn-modal, .custom-login-btn-modal {
+            background-color: #FAE173; /* Основной цвет кнопки */
+            color: black;
+            border: none;
+        }
+
+        .custom-singin-btn-modal:hover, .custom-login-btn-modal:hover, 
+        .custom-singin-btn-modal:active, .custom-login-btn-modal:active {
+            background-color: #d3be62; /* Цвет при нажатии */
+            color: black;
+        }
+
+        /* Уведомления */
+        .toast-container .toast.text-bg-success {
+            background-color: #d3be62 !important; /* Цвет уведомления */
+            color: black; /* Текст уведомления */
+            border: none; /* Убираем рамку */
+        }
+
+
+        .custom-nav-link {
+            color: #FAE173;
+        }
+
+
+        header {
+            text-align: center
+        }
+
+        .bg-image-section {
+            background-image: url('./img/Фоновая\ картинка Специалисты.png');
+            /* Укажите путь к фоновой картинке */
+            background-size: cover;
+            /* Масштабировать для покрытия всего раздела */
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            /* Высота секции: 100% окна */
+            width: 100%;
+            /* Полная ширина секции */
+            display: flex;
+            /* Используем Flexbox для размещения контента */
+            align-items: center;
+            /* Центрируем контент по вертикали */
+            justify-content: flex-end;
+            /* Размещаем группу в правой части */
+            padding-right: 50px;
+            /* Отступ от правого края */
+        }
+
+
+
+        /* Стили для логотипа */
+        .logo {
+            max-width: 250px;
+            /* Ограничиваем размер логотипа */
+            height: auto;
+            /* Сохраняем пропорции */
+            margin-bottom: 10px;
+            /* Отступ между логотипом и текстом */
+        }
+
+
+
+
+        .info-columns-wrapper {
+
+            margin-top: auto;
+            /* Отодвигаем колонки к нижней части раздела */
+            padding: 20px 0;
+        }
+
+        /* Для контейнера с тремя элементами */
+        .info-columns {
+
+            display: flex;
+            /* Используем Flexbox */
+            justify-content: space-between;
+            /* Равномерное распределение между колонками */
+            align-items: flex-start;
+            /* Выровнять элементы по верхнему краю */
+            gap: 20px;
+            /* Промежутки между колонками */
+
+        }
+
+        /* Для каждой колонки */
+        .info-column {
+            background-color: rgba(27, 27, 27, 0.83);
+            /* Тёмный фон с прозрачностью */
+            color: #FAE173;
+            /* Жёлтый текст */
+            padding: 20px;
+            /* Внутренний отступ */
+            border-radius: 10px;
+            /* Закруглённые углы */
+            width: 350px;
+            /* Ширина каждой колонки */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            /* Тень */
+        }
+
+        /* Заголовок колонки */
+        .info-column h3 {
+            margin-bottom: 15px;
+            /* Отступ после заголовка */
+            font-size: 1.5rem;
+        }
+
+        /* Текст внутри колонки */
+        .info-column p {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Стрелка-ссылка */
+        .arrow-link {
+            font-size: 1.5rem;
+            /* Размер стрелки */
+            color: #ffffff;
+            /* Цвет стрелки */
+            text-decoration: none;
+            /* Убираем подчёркивание */
+        }
+
+        .arrow-link:hover {
+            color: #d3be62;
+            /* Цвет при наведении */
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 57px;
+            /* Увеличиваем расстояние между пунктами */
+        }
+
+
+
+
+
+
+
+
+        .navbar-nav {
+            padding-left: 70px;
+        }
+
+        .section-container {
+            display: flex;
+            height: 400px;
+        }
+
+        .form-container {
+            flex: 1;
+            background-color: #EAFA73;
+            padding: 20px;
+        }
+
+        .form-control {
+            border: 2px solid black;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .submit-button {
+            background-color: rgba(163, 137, 6, 0.39);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phone-section {
+            flex: 1;
+            background-color: #494545;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+        }
+
+        .email-section {
+            flex: 1;
+            background-color: #1C1B1B;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+        }
+
+        .icon {
+            font-size: 30px;
+        }
+
+        footer {
+            width: 100%;
+            position: relative;
+            background: #252323;
+            color: white;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 40px 50px;
+        }
+
+        .form-section {
+            width: 60%;
+            background: #EAFA73;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+        .form-textarea {
+            height: 100px;
+        }
+
+        .submit-button {
+            background: rgba(163, 137, 6, 0.39);
+            border: 2px solid black;
+            color: black;
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .contact-section {
+            width: 35%;
+        }
+
+        .contact-block {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .phone-block {
+            background: #494545;
+        }
+
+        .email-block {
+            background: #1C1B1B;
+        }
+
+        .contact-icon {
+            font-size: 36px;
+            margin-right: 20px;
+            color: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 50px;
+            background: #252323;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #FAE173;
+            font-size: 25px;
+            font-family: 'Jura', sans-serif;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 152px;
+            height: 129px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 250px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #FAE173;
+        }
+
+        .custom-nav-link.active {
+            color: #FAE173 !important;
+        }
+
+        /* логотип в круге */
+
+        .logo-circle {
+           width: 300%;
+            height: 365px;
+            background-color: rgba(255, 243, 191, 0.23);
+            /* Цвет круга с прозрачностью */
+            border-radius: 50%;
+            /* Делаем элемент круглым */
+            display: flex;
+            /* Используем Flexbox для центрирования логотипа */
+            align-items: center;
+            /* Центрируем логотип по вертикали */
+            justify-content: center;
+            /* Центрируем логотип по горизонтали */
+        }
+
+        .info-column {
+            width: auto;
+            /* Снимет фиксированную ширину */
+            max-width: 100%;
+            /* Ограничит ширину блока */
+        }
+
+        .bg-image-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Высота секции занимает всё окно браузера */
+            background-image: url('./img/фоновая картинка Специалисты.png');
+            /* Если есть фон */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            /* Центрирование */
+            align-items: flex-start;
+        }
+
+        /* Логотип */
+        #logo {
+            position: absolute;
+            top: 328px;
+            /* Позиция Y */
+            left: 1155px;
+            /* Позиция X */
+            transform: translate(-50%, -50%);
+            /* Для точного центрирования */
+            width: 200px;
+            /* Ширина логотипа, масштабируемая */
+            height: auto;
+            /* Пропорциональное изменение высоты */
+        }
+
+        /* Блок с текстом */
+        #text-block {
+            position: absolute;
+            top: 732px;
+            /* Позиция Y */
+            left: 707px;
+            /* Позиция X */
+            transform: translate(-50%, -50%);
+            /* Для точного центрирования */
+            width: 1190px;
+            /* Ширина блока */
+            max-width: 90%;
+            /* Для адаптации на маленьких экранах */
+        }
+
+        #text-block .info-column {
+            background-color: rgba(27, 27, 27, 0.83);
+            /* Тёмный фон с прозрачностью */
+            color: #FAE173;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+               
+                
+        
+                
+        
+        /* Логотип с кругом */
+        .logo-container {
+            position: absolute;
+            top: 40%;
+            /* Пропорциональное размещение (223px от высоты 938px) */
+            left: 73%;
+            /* Пропорциональное размещение (1155px от ширины 1920px) */
+            transform: translate(-50%, -50%);
+            /* Центрирование */
+            width: 365px;
+            height: 362px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Круг с эффектом размытия */
+        .blur-circle {
+            width: 365px;
+            height: 362px;
+            background: rgba(255, 243, 191, 0.23);
+            border-radius: 50%;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+            filter: blur(4px);
+            position: absolute;
+        }
+
+        /* Логотип внутри круга */
+        .logo-image {
+            position: relative;
+            z-index: 1;
+            width: 263px;
+            height: 175px;
+        }
+
+        
+
+        /* Прямоугольный блок с текстом */
+        .text-block {
+            position: absolute;
+            top: 80%;
+            /* Пропорциональное размещение (618.64px от высоты 938px) */
+            left: 70%;
+            /* Пропорциональное размещение (707px от ширины 1920px) */
+            transform: translate(-50%, -50%);
+            /* Центрирование */
+            width: 62%;
+            /* Пропорциональная ширина (1190px от ширины 1920px) */
+            background: rgba(39, 39, 39, 0.81);
+            border-radius: 35px;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            /* Адаптивный размер текста */
+            font-family: 'Century Gothic', sans-serif;
+            line-height: 1.6;
+        }
+
+       /* Общий стиль секции */
+        .services-section {
+           padding: 50px 10%;
+           text-align: center;
+           background-color: #343333;
+           margin-top: -70px;
+           /* Общий фон секции */
+        }
+       /* Заголовок секции */
+        .section-title {
+           font-size: 2.5rem;
+           font-weight: bold;
+           color: #FAE173;
+           margin-bottom: 40px;
+        }
+       /* Сетка карточек */
+        .cards-grid {
+           display: grid;
+           grid-template-columns: repeat(2, 1fr);
+           /* 2 карточки в строку */
+           gap: 30px;
+           /* Отступы между карточками */
+           justify-content: center;
+        }
+       /* Карточки */
+        .card {
+           background: rgba(0, 0, 0, 0.66);
+           /* Чёрный фон с 34% прозрачности */
+           color: white;
+           /* Цвет текста */
+           border: 2px solid black;
+           /* Чёрная обводка */
+           border-radius: 10px;
+           /* Закруглённые углы */
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+           /* Тень */
+           padding: 20px;
+           /* Соотношение сторон */
+           aspect-ratio: 4 / 3;
+           /* Карточки будут иметь ширину в 4 части и высоту в 3 части */
+           display: flex;
+           flex-direction: column;
+           /* Вертикальное расположение текста */
+           justify-content: flex-start;
+           /* Текст у верхней границы */
+       }
+       /* Заголовки карточек */
+       .card-title {
+           font-size: 1.8rem;
+           font-weight: bold;
+           color: #FAE173;
+           margin-bottom: 15px;
+           /* Отступ после заголовка */
+           text-align: center;
+       }
+       /* Абзацы внутри карточек */
+       .card p {
+           margin-bottom: 15px;
+           /* Отступ между абзацами */
+           font-size: 1.4rem;
+           line-height: 1.5;
+           text-align: left;
+           /* Абзацы выравниваются по левому краю */
+       }
+       /* Адаптивность */
+       @media (max-width: 768px) {
+           .cards-grid {
+               grid-template-columns: 1fr;
+               /* 1 карточка в строку на маленьких экранах */
+           }
+       }
+
+               /* Стиль для раздела прайс-листа */
+               .price-list {
+                   padding: 50px 10%;
+                   text-align: center;
+                   background-color: #343333;
+                   /* Фон секции */
+               }
+               /* Заголовок раздела */
+               .section-title {
+                   font-size: 2.5rem;
+                   font-weight: bold;
+                   color: #FAE173;
+                   margin-bottom: 40px;
+               }
+               /* Прайс-лист */
+               .price-items {
+                   display: flex;
+                   flex-direction: column;
+                   gap: 30px;
+                   /* Отступы между элементами прайс-листа */
+                   align-items: center;
+               }
+               /* Элемент прайс-листа */
+               .price-item {
+                   background: rgba(0, 0, 0, 0.66);
+                   /* Черный фон с прозрачностью */
+                   color: white;
+                   /* Белый текст */
+                   border: 2px solid black;
+                   /* Чёрная обводка */
+                   border-radius: 10px;
+                   /* Закругленные углы */
+                   padding: 20px;
+                   width: 60%;
+                   /* Ширина элемента прайс-листа */
+                   text-align: left;
+                   /* Выравнивание текста по левому краю */
+                   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                   /* Тень */
+               }
+               /* Заголовки внутри прайс-листа */
+               .price-title {
+                   font-size: 1.75rem;
+                   font-weight: bold;
+                   color: white;
+                   margin-bottom: 15px;
+               }
+               /* Описание внутри прайс-листа */
+               .price-description {
+                   font-size: 1.125rem;
+                   line-height: 1.5;
+                   margin-bottom: 15px;
+               }
+               /* Адаптивность */
+               @media (max-width: 768px) {
+                   .price-items {
+                       width: 100%;
+                       /* Сетка на маленьких экранах */
+                   }
+                   .price-item {
+                       width: 90%;
+                       /* Элементы прайс-листа занимают больше ширины на маленьких экранах */
+                   }
+               }
+
+                /* Общий стиль секции */
+               .price-section {
+                   padding: 50px 0;
+                   /* Убираем боковые отступы */
+                   background-color: #343333;
+                   /* Фон секции */
+                   color: white;
+                   /* Цвет текста */
+                   text-align: center;
+                   width: 100%;
+                   /* Секция занимает всю ширину сайта */
+                   box-sizing: border-box;
+                   /* Учитываем padding в ширине */
+               }
+                
+        
+                /* Заголовок секции */
+                .section-title {
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    color: #FAE173;
+                    margin-bottom: 40px;
+                }
+        
+                /* Прайс-лист */
+                .price-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 50px;
+                    /* Отступы между категориями */
+                }
+        
+                /* Категории прайс-листа */
+                .price-category {
+                    padding: 50px;
+                    border-radius: 10px;
+                    /* Закругленные углы */
+                    border: 2px solid black;
+                    /* Чёрная обводка */
+                    text-align: left;
+                    /* Выравнивание текста */
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                    /* Тень */
+                }
+        
+                /* Заголовки категорий */
+                .category-title {
+                    font-size: 1.75rem;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                    /* Отступ после заголовка */
+                }
+        
+                /* Пункты прайс-листа */
+                .price-category p {
+                    font-size: 1.125rem;
+                    line-height: 1.5;
+                    margin-bottom: 10px;
+                    /* Отступ между пунктами */
+                    text-indent: 20px;
+                    /* Отступ первой строки для читабельности */
+                }
+        
+                /* Адаптивность */
+                @media (max-width: 768px) {
+                    .price-list {
+                        gap: 20px;
+                    }
+        
+                    .price-category {
+                        padding: 15px;
+                    }
+                }
+
+                .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #FAE173;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .team-member {
+    background-color: #343333;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+        .team-member img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+        .team-member-content {
+            flex: 1;
+        }
+
+        .team-member-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FAE173;
+            margin-bottom: 10px;
+        }
+
+        .team-member-role {
+            font-size: 20px;
+            font-weight: 600;
+            color: #FAE173;
+            margin-bottom: 15px;
+        }
+
+        .team-member-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Отступ между текстом и чекбоксом */
+        }
+
+    </style>
+
+
+    <!-- Шапка сайта "Header" -->
+
+    <header>
+
+        <!-- навигационная панель -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-5 me-auto mb-2 mb-lg-0 custom-margin">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/Главная.html">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/Услуги.html">Услуги</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active custom-nav-link" href="/Специалисты.html">Специалисты</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Контакты.html">Контакты</a>
+                        </li>
+                    </ul>
+
+                    <!-- Кнопка "Войти" -->
+
+                    <button type="button" class="btn btn-primary custom-login-btn btn-lg" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">Войти</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Модальное окно "Вход" -->
+
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Вход</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Форма входа -->
+
+                        <form>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="email" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" placeholder="Пароль">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary custom-singin-btn-modal w-100  "
+                                onclick="handleSuccess('Вход')">Войти</button>
+                        </form>
+                        <hr>
+
+                        <!-- Ссылка на модальное окно регистрации -->
+                        <div class="text-center">
+
+                            <p>Нет аккаунта? <a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#registerModal">Зарегистрируйтесь</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно "Регистрация" -->
+
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerModalLabel">Регистрация</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Форма регистрации -->
+
+                        <form>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="registerEmail" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="registerPassword"
+                                        placeholder="Пароль">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock-fill"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="confirmPassword"
+                                        placeholder="Повторите ваш пароль">
+                                </div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Запомнить меня
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-success custom-login-btn-modal w-100"
+                                onclick="handleSuccess('Регистрация')">Зарегистрироваться</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Контейнер для уведомлений -->
+
+        <div class="toast-container">
+            <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="toastMessage">Прошло успешно</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной раздел -->
+    <main>
+
+        <!-- 1 раздел -->
+        <section class="bg-image-section mb-5">
+            <!-- Логотип -->
+            <div class="logo-container">
+                <div class="blur-circle"></div>
+                <img src="./img/лого.png" alt="Логотип" class="logo-image">
+            </div>
+
+            <!-- Новый большой блок -->
+            <div class="text-block">
+                <p>Трудные, редкие и сложные проекты.</p>
+                
+                <p>Нам интересны проекты, за которые не берутся другие юристы.</p>
+            </div>
+        </section>
+
+        <div class="section">
+            <h1 class="section-title">Наша Команда</h1>
+        </div>
+        
+        <!-- Team Section -->
+        <div class="team">
+            <div class="team-member">
+                <img src="./img/РОДИОН 1.png" alt="Rodion Kolobov">
+                <div class="team-member-content">
+                    <div class="team-member-name">Родион Колобов</div>
+                    <div class="team-member-role">Руководитель юридического отдела</div>
+                    <p class="team-member-description">Главный юрист, эксперт в области семейного права. 15 лет курировал тысячи
+                        семей в личных вопросах. Возглавлял юридическую компанию по вопросам семейного права, реализовал
+                        несколько амбициозных проектов, в том числе международных. <br><br>Гарантирует реалистическую оценку
+                        перспективам дела и защиту ваших прав.</p>
+                </div>
+            </div>
+        
+            <div class="team-member">
+                <img src="./img/Елисей.png" alt="Elisey Lavrentiev">
+                <div class="team-member-content">
+                    <div class="team-member-name">Елисей Лаврентьев</div>
+                    <div class="team-member-role">Специалист по уголовному праву</div>
+                    <p class="team-member-description">Эксперт в области уголовного права. Прошел службу в органах внутренних
+                        дел от рядового следователя до руководителя следственного управления МВД России.<br><br>Знание изнутри
+                        судебной и правоохранительной деятельности дает возможность решать самые сложные задачи в рамках
+                        уголовного преследования.</p>
+                </div>
+            </div>
+        
+            <div class="team-member">
+                <img src="./img/Диана.png" alt="Diana Bolshakova">
+                <div class="team-member-content">
+                    <div class="team-member-name">Диана Большакова</div>
+                    <div class="team-member-role">Юрист по наследственным делам</div>
+                    <p class="team-member-description">При оказании юридической помощи анализируем дело и перспективы его
+                        благоприятного исхода для доверителя, изучаем судебную практику и вырабатываем индивидуальную тактику
+                        защиты прав и законных интересов доверителя.<br><br>9 лет успешной работы нотариусом.</p>
+                </div>
+            </div>
+        
+            <div class="team-member">
+                <img src="./img/Рустам.png" alt="Rustam Isaev">
+                <div class="team-member-content">
+                    <div class="team-member-name">Рустам Исаев</div>
+                    <div class="team-member-role">Финансовый юрист</div>
+                    <p class="team-member-description">Профессионал в области финансового права. Возглавлял штат арбитражных
+                        управляющих, которые сопровождали клиентов и давали разъяснения по любому волнующему вопросу.<br><br>Мы
+                        работаем на результат!</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </main>
+
+    <!-- Подвал "Footer" -->
+    <footer>
+        <div class="footer-container">
+
+            <!-- Левая часть с формой -->
+            <div class="form-section">
+                <h2 style="color: black;">Оставьте заявку на бесплатную консультацию</h2>
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Ваше имя">
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-input" placeholder="Ваш номер телефона">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" placeholder="Опишите вашу проблему"></textarea>
+                </div>
+                <div class="submit-button">Отправить</div>
+            </div>
+
+            <!-- Правая часть с контактами -->
+            <div class="contact-section">
+
+                <!-- Телефон -->
+                <div class="contact-block phone-block">
+                    <i class="bi bi-telephone-fill contact-icon"></i>
+                    <span>+7 (777) 777-77-77</span>
+                </div>
+
+                <!-- Почта -->
+                <div class="contact-block email-block">
+                    <i class="bi bi-envelope-fill contact-icon"></i>
+                    <span>infoLegal@mail.com</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+
+            <!-- Логотип -->
+            <div class="logo">
+                <img src="./img/лого.png" alt="Logo">
+            </div>
+
+            <!-- Ссылки -->
+            <div class="footer-links">
+
+                <!-- Первый столбец -->
+                <div class="footer-column">
+                    <a href="/Главная.html">Главная</a>
+                    <a href="/Услуги.html">Услуги</a>
+                    <a href="/Специалисты.html">Специалисты</a>
+                    <a href="/Контакты.html">Контакты</a>
+                </div>
+
+                <!-- Второй столбец -->
+                <div class="footer-column">
+                    <label for="">Политика</label>
+                    <label for="">Конфиденциальность</label>
+                </div>
+            </div>
+
+            <!-- Соцсети -->
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-tiktok"></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleSuccess(action) {
+
+            // Закрытие всех открытых модальных окон
+
+            const modals = document.querySelectorAll('.modal.show');
+            modals.forEach(modal => {
+                const instance = bootstrap.Modal.getInstance(modal);
+                instance.hide();
+            });
+
+            // Настройка и показ уведомления
+
+            const toast = new bootstrap.Toast(document.getElementById('successToast'));
+            document.getElementById('toastMessage').innerText = `${action} прошла успешно`;
+            toast.show();
+        }
+    </script>
+</body>
+
+</html>
